@@ -18,3 +18,6 @@ lazy_static = "1.2"
 mach = "0.3"
 audio-mixer = "0.1"
 ringbuf = "0.2"
+
+[build-dependencies]
+cc = "1.0"

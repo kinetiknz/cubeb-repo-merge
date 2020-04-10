@@ -2,6 +2,18 @@ use super::*;
 
 // Common Utils
 // ------------------------------------------------------------------------------------------------
+pub fn test_enable_log(level: ffi::cubeb_log_level) {
+    use std::os::raw::c_char;
+
+    extern "C" {
+        fn print_log(msg: *const c_char, ...);
+    }
+
+    unsafe {
+        ffi::cubeb_set_log_callback(level, Some(print_log));
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum Scope {
     Input,
